@@ -23,7 +23,6 @@ $(document).ready(function(e)
     var CLASS_LOADING = 'is-loading',
         CLASS_SELECTED = 'is-selected',
         URL_BASE = 'http://www.reddit.com',
-        THUMBNAIL_SELF = 'default',
         BODY_HEIGHT_MAX = 250,
         $window = $(window),
         $more = $('.articles-more'),
@@ -60,7 +59,7 @@ $(document).ready(function(e)
         {
             src = data.thumbnail;
 
-            if (src == THUMBNAIL_SELF)
+            if (src == 'default' || src == 'self')
             {
                 src = '/images/thumbnail.png';
             }
@@ -170,7 +169,7 @@ $(document).ready(function(e)
         }
 
         url = url + '/.json';
-        
+
         $more.hide();
         $loading.addClass(CLASS_LOADING);
 
