@@ -48,6 +48,7 @@ $(document).ready(function(e)
             $link = $('<a />')
                 .addClass('article-link')
                 .attr('href', data.url)
+                .attr('target', '_blank')
                 .appendTo($article),
             $title = $('<span />')
                 .addClass('article-title')
@@ -103,6 +104,48 @@ $(document).ready(function(e)
             .appendTo($article);
 
         return $article;
+    };
+
+    var init = function()
+    {
+        if ($subreddits.children().length > 1)
+        {
+            return;
+        }
+
+        $.ajax(
+            {
+                url : URL_BASE + '/subreddits/popular.json',
+                jsonp: 'jsonp',
+                dataType : 'jsonp',
+                success : function(response)
+                {
+                    var i,
+                        uri,
+                        sub,
+                        link,
+                        $link,
+                        data = response.data;
+
+                    for (i = 0; i < data.children.length; i++)
+                    {
+                        uri = new URI('/');
+                        link = data.children[i].data,
+                            sub = link.display_name.toLowerCase();
+
+                        $link = $('<a />')
+                            .text(link.display_name)
+                            .data('r', sub)
+                            .attr('href', '/')
+                            .attr('title', link.title)
+                            .addClass('navigation');
+
+                        $subreddits.append($link);
+                    }
+
+                    update();
+                }
+            });
     };
 
     var load = function(sub, sort, after)
@@ -172,51 +215,15 @@ $(document).ready(function(e)
         });
     };
 
-    var init = function()
-    {
-        if ($subreddits.children().length > 1)
-        {
-            return;
-        }
-
-        $.ajax(
-            {
-                url : URL_BASE + '/subreddits/popular.json',
-                jsonp: 'jsonp',
-                dataType : 'jsonp',
-                success : function(response)
-                {
-                    var i,
-                        uri,
-                        sub,
-                        link,
-                        $link,
-                        data = response.data;
-
-                    for (i = 0; i < data.children.length; i++)
-                    {
-                        uri = new URI('/');
-                        link = data.children[i].data,
-                        sub = link.display_name.toLowerCase();
-
-                        $link = $('<a />')
-                            .text(link.display_name)
-                            .data('r', sub)
-                            .attr('href', '/')
-                            .attr('title', link.title)
-                            .addClass('navigation');
-
-                        $subreddits.append($link);
-                    }
-
-                    update();
-                }
-            });
-    };
-
     var update = function()
     {
-        var $links = $('a.navigation');
+        var $menus = $('.menu'),
+            $links = $('a.navigation');
+
+//        $menus.each(function()
+//        {
+//            var $
+//        });
 
         $links.each(function()
         {
@@ -244,6 +251,7 @@ $(document).ready(function(e)
             }
 
             $this.attr('href', uri.normalize());
+            $this.toggleClass(CLASS_SELECTED, uri.equals(new URI()));
 
             if (!$this.isBound('click'))
             {

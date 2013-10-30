@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2ff23019-5bb9-49d4-9588-55af472d11cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller.js" afterPath="$PROJECT_DIR$/js/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RedditBrowser.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/style.scss" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383125332554" ignored="false" />
     <file path="/index.htm" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383081082221" ignored="false" />
-    <file path="/controller.js" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383130190835" ignored="false" />
+    <file path="/controller.js" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383130479959" ignored="false" />
     <file path="/index.php" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383128705833" ignored="false" />
     <file path="/a.dummy" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383126005855" ignored="false" />
     <file path="/Dummy.txt" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383126576034" ignored="false" />
@@ -55,7 +53,7 @@
       <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="241" column="42" selection-start="6119" selection-end="6119" vertical-scroll-proportion="0.688326">
+            <state line="253" column="69" selection-start="6430" selection-end="6430" vertical-scroll-proportion="0.7378855">
               <folding />
             </state>
           </provider>
@@ -422,7 +420,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="42" selection-start="6119" selection-end="6119" vertical-scroll-proportion="0.688326">
+        <state line="253" column="69" selection-start="6430" selection-end="6430" vertical-scroll-proportion="0.7378855">
           <folding />
         </state>
       </provider>
