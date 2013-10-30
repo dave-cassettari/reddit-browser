@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ff23019-5bb9-49d4-9588-55af472d11cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller.js" afterPath="$PROJECT_DIR$/js/controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RedditBrowser.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/style.scss" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383125332554" ignored="false" />
     <file path="/index.htm" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383081082221" ignored="false" />
-    <file path="/controller.js" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383128889673" ignored="false" />
+    <file path="/controller.js" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383130190835" ignored="false" />
     <file path="/index.php" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383128705833" ignored="false" />
     <file path="/a.dummy" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383126005855" ignored="false" />
     <file path="/Dummy.txt" changelist="2ff23019-5bb9-49d4-9588-55af472d11cc" time="1383126576034" ignored="false" />
@@ -45,22 +46,22 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="30" selection-start="1362" selection-end="1362" vertical-scroll-proportion="-17.576923">
+            <state line="60" column="55" selection-start="2087" selection-end="2087" vertical-scroll-proportion="-29.346153">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.0">
+            <state line="241" column="42" selection-start="6119" selection-end="6119" vertical-scroll-proportion="0.688326">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -90,9 +91,9 @@
         <option value="$PROJECT_DIR$/index.htm" />
         <option value="$PROJECT_DIR$/css/sass/_reset.scss" />
         <option value="$PROJECT_DIR$/css/sass/style.scss" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/js/controller.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -405,23 +406,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="30" selection-start="1362" selection-end="1362" vertical-scroll-proportion="-17.576923">
+        <state line="60" column="55" selection-start="2087" selection-end="2087" vertical-scroll-proportion="-29.346153">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="241" column="42" selection-start="6119" selection-end="6119" vertical-scroll-proportion="0.688326">
           <folding />
         </state>
       </provider>

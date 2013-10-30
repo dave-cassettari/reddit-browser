@@ -15,7 +15,7 @@ $.fn.isBound = function(type, fn)
         return false;
     }
 
-    return ($.inArray(fn, data) !== -1);
+    return (fn && $.inArray(fn, data) !== -1);
 };
 
 $(document).ready(function(e)
@@ -25,7 +25,6 @@ $(document).ready(function(e)
         URL_BASE = 'http://www.reddit.com',
         THUMBNAIL_SELF = 'self',
         BODY_HEIGHT_MAX = 250,
-        last = null,
         $window = $(window),
         $more = $('.articles-more'),
         $loading = $('.articles-loading'),
@@ -106,17 +105,13 @@ $(document).ready(function(e)
         return $article;
     };
 
-    var update = function(subreddit, sort, last)
+    var load = function(sub, sort, after)
     {
-        var url = URL_BASE,
-            data =
-            {
-                last : last
-            };
+        var url = URL_BASE;
 
-        if (subreddit)
+        if (sub)
         {
-            url = url + '/r/' + subreddit;
+            url = url + '/r/' + sub;
         }
 
         if (sort)
@@ -126,13 +121,19 @@ $(document).ready(function(e)
 
         url = url + '/.json';
 
+        if (after)
+        {
+            url = url + '?after=' + after;
+        }
+
+        console.log(url);
+
         $more.hide();
         $loading.addClass(CLASS_LOADING);
 
         $.ajax(
         {
             url : url,
-            data : data,
             jsonp: 'jsonp',
             dataType : 'jsonp',
             success : function(response)
@@ -143,7 +144,7 @@ $(document).ready(function(e)
                     $inserted = [];
 
                 $more.show();
-                $more.data('last', listing.after);
+                $more.data('after', listing.after);
                 $loading.removeClass(CLASS_LOADING);
 
                 if (articles.length == 0)
@@ -165,11 +166,13 @@ $(document).ready(function(e)
                         }
                     });
                 }
+
+                update();
             }
         });
     };
 
-    var load = function(subreddit, sort)
+    var init = function()
     {
         if ($subreddits.children().length > 1)
         {
@@ -206,26 +209,38 @@ $(document).ready(function(e)
                         $subreddits.append($link);
                     }
 
-                    init(subreddit, sort);
+                    update();
                 }
             });
     };
 
-    var init = function(subreddit, sort)
+    var update = function()
     {
         var $links = $('a.navigation');
 
         $links.each(function()
         {
             var name,
+                value,
                 uri = new URI(),
                 $this = $(this),
                 href = $this.attr('href'),
                 data = $this.data();
 
+            uri.removeQuery('after');
+
             for (name in data)
             {
-                uri.setQuery(name, data[name]);
+                value = data[name];
+
+                if (value)
+                {
+                    uri.setQuery(name, value);
+                }
+                else
+                {
+                    uri.removeQuery(name);
+                }
             }
 
             $this.attr('href', uri.normalize());
@@ -254,17 +269,19 @@ $(document).ready(function(e)
         var query   = uri.query(true),
             sub     = query.r,
             sort    = query.sort,
-            last    = query.last;
+            after   = query.after;
 
-        $container.empty();
-        $more.data('last', null);
+        if (!after)
+        {
+            $container.empty();
+        }
 
-        last = null;
+        $more.data('after', after);
+
         masonry.layout();
 
-        init(sub, sort);
-        load(sub, sort);
-        update(sub, sort, last);
+        init();
+        load(sub, sort, after);
     };
 
     History.Adapter.bind(window, 'statechange', function()

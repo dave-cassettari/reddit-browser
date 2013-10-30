@@ -58,7 +58,7 @@
 
 <img class='articles-loading' src='/images/loading.gif' alt='Loading' />
 
-<a href='/' class='navigation articles-more' data-last=''>Load More</a>
+<a href='/' class='navigation articles-more' data-after=''>Load More</a>
 
 </body>
 </html>
