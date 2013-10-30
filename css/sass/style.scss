@@ -1,0 +1,283 @@
+@import 'reset';
+
+$header-height: 2.5em;
+$header-background: #fff;
+$article-width: 300px;
+$article-margin: 10px;
+$article-radius: 0.25em;
+$article-columns: 6, 5, 4, 3, 2;
+
+@mixin clear-fix()
+{
+  &:after
+  {
+	height: 0;
+
+	line-height: 0;
+
+	content: ".";
+	display: block;
+	visibility: hidden;
+
+	clear: both;
+  }
+
+  html[xmlns] &
+  {
+	display: block;
+  }
+
+  * html &
+  {
+	height: 1%;
+  }
+}
+
+*
+{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a
+{
+  text-decoration: none;
+
+  &:hover
+  {
+	text-decoration: underline;
+  }
+}
+
+html
+{
+  min-height: 100%;
+
+  background: url("/images/background.png");
+
+  color: #333;
+  font-size: 11pt;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 300;
+}
+
+header
+{
+  height: $header-height;
+  padding: 0.5em;
+
+  background: $header-background;
+  box-shadow: 0 2px 3px #ccc;
+
+  z-index: 1;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+h1
+{
+  padding: 0.25em 0 0 0.5em;
+
+  font-weight: 600;
+
+  float: left;
+}
+
+.articles
+{
+  width: nth($article-columns, 1) * ($article-width + 2 * $article-margin);
+  margin: 0 auto;
+  padding: ($header-height + 1em) 0 0;
+}
+
+article
+{
+  width: $article-width;
+  //max-height: 10em;
+  margin: 0 $article-margin (2 * $article-margin);
+  padding: 0.75em;
+
+  border-radius: $article-radius;
+  background: #fff;
+  box-shadow: 0 2px 1px #ccc;
+
+  text-align: center;
+  line-height: 1.5;
+
+  //overflow: hidden;
+
+  float: left;
+
+  //&:hover
+  //{
+	//padding-right: 0;
+  //
+	//overflow-y: auto;
+  //}
+
+  .article-link
+  {
+	text-align: left;
+
+	display: block;
+
+	@include clear-fix();
+  }
+
+  .article-title
+  {
+	margin: 0 0 0.75em;
+
+	display: block;
+  }
+
+  .article-body
+  {
+	margin: 0 0 0.75em;
+
+	color: #666;
+	text-align: left;
+	word-wrap: break-word;
+
+	&.article-body-long
+	{
+	  height: 250px;
+
+	  overflow-y: auto;
+	}
+  }
+
+  .article-image
+  {
+	width: 70px;
+	margin: 0 0.75em 0.5em 0;
+
+	border-radius: $article-radius 0 0 0;
+
+	display: block;
+
+	float: left;
+  }
+
+  .article-score,
+  .article-comments
+  {
+	padding: 0 1em;
+
+	color: #666;
+	font-size: 90%;
+
+	clear: both;
+
+	&:before
+	{
+	  margin-right: 0.5em;
+	}
+  }
+
+  .article-score
+  {
+	&:before
+	{
+	  content: '♥';
+	}
+  }
+
+  .article-comments
+  {
+	text-decoration: none;
+
+	&:hover
+	{
+	  color: #000;
+	  text-decoration: underline;
+	}
+
+	&:before
+	{
+	  content: '\e805';
+	}
+  }
+}
+
+.articles-loading
+{
+  margin: 1em auto;
+
+  display: none;
+
+  &.is-loading
+  {
+  	display: block;
+  }
+}
+
+.articles-more
+{
+  margin: 0 0 1em;
+  padding: 1em;
+
+  text-align: center;
+
+  display: block;
+}
+
+.sorts,
+.subreddits
+{
+  height: 1.5em;
+  margin: 0 0 0 2em;
+  padding: 1em 1em 0;
+
+  background: $header-background;
+
+  white-space:nowrap;
+
+  overflow: hidden;
+  position: relative;
+
+  float: left;
+
+  &:hover
+  {
+	height: auto;
+  }
+
+  a,
+  span
+  {
+	margin: 1em 0 0;
+
+	display: block;
+
+	&:last-child
+	{
+	  margin-bottom: 1em;
+	}
+
+	&.is-selected
+	{
+	  font-weight: bold;
+
+	  position: absolute;
+	  top: -0.75em;
+	}
+  }
+}
+
+@for $i from 1 through length($article-columns)
+{
+  $column: nth($article-columns, $i);
+
+  @media all and (max-width: $column * ($article-width + 2 * $article-margin))
+  {
+	.articles
+	{
+	  width: ($column - 1) * ($article-width + 2 * $article-margin);
+	}
+  }
+}
