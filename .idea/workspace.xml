@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ff23019-5bb9-49d4-9588-55af472d11cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/.sass-cache/0dd9188532e3d277127338acac3cb85bec1b4c5b/style.scssc" afterPath="$PROJECT_DIR$/css/.sass-cache/0dd9188532e3d277127338acac3cb85bec1b4c5b/style.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/thumbnail.png" afterPath="$PROJECT_DIR$/images/thumbnail.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller.js" afterPath="$PROJECT_DIR$/js/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/compiled/style.css" afterPath="$PROJECT_DIR$/css/compiled/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/style.scss" afterPath="$PROJECT_DIR$/css/sass/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RedditBrowser.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="225" column="20" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.4125874">
+            <state line="225" column="20" selection-start="2676" selection-end="2676" vertical-scroll-proportion="-7.08">
               <folding />
             </state>
           </provider>
@@ -56,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="21" selection-start="4164" selection-end="4164" vertical-scroll-proportion="0.0">
+            <state line="172" column="8" selection-start="4347" selection-end="4347" vertical-scroll-proportion="0.48678413">
               <folding />
             </state>
           </provider>
@@ -86,9 +80,9 @@
         <option value="$PROJECT_DIR$/index.htm" />
         <option value="$PROJECT_DIR$/css/sass/_reset.scss" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/js/controller.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/css/sass/style.scss" />
+        <option value="$PROJECT_DIR$/js/controller.js" />
       </list>
     </option>
   </component>
@@ -416,13 +410,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="21" selection-start="4164" selection-end="4164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="0" selection-start="1364" selection-end="1364" vertical-scroll-proportion="-20.038462">
@@ -432,7 +419,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="20" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.4125874">
+        <state line="225" column="20" selection-start="2676" selection-end="2676" vertical-scroll-proportion="-7.08">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="8" selection-start="4347" selection-end="4347" vertical-scroll-proportion="0.48678413">
           <folding />
         </state>
       </provider>

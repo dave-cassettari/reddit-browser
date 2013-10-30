@@ -157,7 +157,6 @@ $(document).ready(function(e)
             data =
             {
                 after : after,
-                limit : 1
             };
 
         if (sub)
@@ -171,12 +170,7 @@ $(document).ready(function(e)
         }
 
         url = url + '/.json';
-
-//        if (after)
-//        {
-//            url = url + '?after=' + after;
-//        }
-
+        
         $more.hide();
         $loading.addClass(CLASS_LOADING);
 
