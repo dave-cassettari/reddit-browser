@@ -153,7 +153,12 @@ $(document).ready(function(e)
 
     var load = function(sub, sort, after)
     {
-        var url = URL_BASE;
+        var url = URL_BASE,
+            data =
+            {
+                after : after,
+                limit : 1
+            };
 
         if (sub)
         {
@@ -167,10 +172,10 @@ $(document).ready(function(e)
 
         url = url + '/.json';
 
-        if (after)
-        {
-            url = url + '?after=' + after;
-        }
+//        if (after)
+//        {
+//            url = url + '?after=' + after;
+//        }
 
         $more.hide();
         $loading.addClass(CLASS_LOADING);
@@ -178,6 +183,7 @@ $(document).ready(function(e)
         $.ajax(
         {
             url : url,
+            data : data,
             jsonp: 'jsonp',
             dataType : 'jsonp',
             success : function(response)
@@ -212,7 +218,10 @@ $(document).ready(function(e)
 
     var update = function()
     {
-        var $links = $('a.navigation');
+        var $links = $('a.navigation'),
+            current = new URI();
+
+        current.removeQuery('after');
 
         $links.each(function()
         {
@@ -240,7 +249,7 @@ $(document).ready(function(e)
             }
 
             $this.attr('href', uri.normalize());
-            $this.toggleClass(CLASS_SELECTED, uri.equals(new URI()));
+            $this.toggleClass(CLASS_SELECTED, uri.equals(current));
 
             if (!$this.isBound('click'))
             {
@@ -248,7 +257,9 @@ $(document).ready(function(e)
                 {
                     event.preventDefault();
 
-                    var search = new URI($this.attr('href')).search();
+                    var search = new URI($this.attr('href')).search() || '/';
+
+                    console.log(search);
 
                     History.pushState(null, window.document.title, search);
 
@@ -294,7 +305,7 @@ $(document).ready(function(e)
     {
         if ($window.scrollTop() + $window.height() >= $(document).height())
         {
-           // $more.click();
+            $more.click();
         }
     });
 });

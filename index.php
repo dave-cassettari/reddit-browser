@@ -43,7 +43,7 @@
 	</div>
 
 	<div class='menu'>
-		<a href='/?sort=top'            data-sort='top'             class='navigation is-selected'>Top</a>
+		<a href='/'                     data-sort=''                   class='navigation is-selected'>Top</a>
 		<a href='/?sort=hot'            data-sort='hot'             class='navigation'>Hot</a>
 		<a href='/?sort=new'            data-sort='new'             class='navigation'>New</a>
 		<a href='/?sort=controversial'  data-sort='controversial'   class='navigation'>Controversial</a>
@@ -51,13 +51,13 @@
 	</div>
 </header>
 
-<div class='articles'>
-
-</div>
+<div class='articles'></div>
 
 <img class='articles-loading' src='/images/loading.gif' alt='Loading' />
 
 <a href='/' class='navigation articles-more' data-after=''>Load More</a>
+
+<div class='background'></div>
 
 </body>
 </html>
