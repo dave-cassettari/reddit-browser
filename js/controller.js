@@ -23,7 +23,7 @@ $(document).ready(function(e)
     var CLASS_LOADING = 'is-loading',
         CLASS_SELECTED = 'is-selected',
         URL_BASE = 'http://www.reddit.com',
-        THUMBNAIL_SELF = 'self',
+        THUMBNAIL_SELF = 'default',
         BODY_HEIGHT_MAX = 250,
         $window = $(window),
         $more = $('.articles-more'),
@@ -41,6 +41,7 @@ $(document).ready(function(e)
     var insert = function(listing)
     {
         var src,
+            type = 'iframe',
             data = listing.data,
             uri = new URI(data.url),
             $article = $('<article />')
@@ -69,14 +70,21 @@ $(document).ready(function(e)
                 .attr('src', src));
         }
 
-//        switch (uri.domain())
+        switch (uri.domain())
+        {
+            case 'imgur.com':
+                type = undefined;
+                break;
+
+            case 'youtube.com':
+                type = 'youtube';
+                break;
+        }
+
+//        $link.fancybox(
 //        {
-//            case 'imgur.com':
-//                $link.prepend($('<img />')
-//                    .addClass('article-image')
-//                    .attr('src', uri));
-//                break;
-//        }
+//            type : type
+//        });
 
         if (data.selftext)
         {
@@ -169,8 +177,6 @@ $(document).ready(function(e)
             url = url + '?after=' + after;
         }
 
-        console.log(url);
-
         $more.hide();
         $loading.addClass(CLASS_LOADING);
 
@@ -182,9 +188,9 @@ $(document).ready(function(e)
             success : function(response)
             {
                 var i,
+                    $inserted,
                     listing = response.data,
-                    articles = listing.children,
-                    $inserted = [];
+                    articles = listing.children;
 
                 $more.show();
                 $more.data('after', listing.after);
@@ -198,16 +204,10 @@ $(document).ready(function(e)
                 {
                     for (i = 0; i < articles.length; i++)
                     {
-                        $inserted.push(insert(articles[i]));
-                    }
+                        $inserted = insert(articles[i]);
 
-                    imagesLoaded($container, function()
-                    {
-                        for (i = 0; i < $inserted.length; i++)
-                        {
-                            masonry.appended($inserted[i]);
-                        }
-                    });
+                        masonry.appended($inserted)
+                    }
                 }
 
                 update();
@@ -217,13 +217,7 @@ $(document).ready(function(e)
 
     var update = function()
     {
-        var $menus = $('.menu'),
-            $links = $('a.navigation');
-
-//        $menus.each(function()
-//        {
-//            var $
-//        });
+        var $links = $('a.navigation');
 
         $links.each(function()
         {
