@@ -1,3 +1,23 @@
+$.fn.isBound = function(type, fn)
+{
+    var data,
+        events = this.data('events');
+
+    if (!events)
+    {
+        return false;
+    }
+
+    data = events[type];
+
+    if (data === undefined || data.length === 0)
+    {
+        return false;
+    }
+
+    return ($.inArray(fn, data) !== -1);
+};
+
 $(document).ready(function(e)
 {
     var CLASS_LOADING = 'is-loading',
@@ -5,14 +25,11 @@ $(document).ready(function(e)
         URL_BASE = 'http://www.reddit.com',
         THUMBNAIL_SELF = 'self',
         BODY_HEIGHT_MAX = 250,
-        subreddit = null,
-        sort = null,
         last = null,
         $window = $(window),
         $more = $('.articles-more'),
         $loading = $('.articles-loading'),
         $container = $('.articles'),
-        $sorts = $('.sorts'),
         $subreddits = $('.subreddits'),
         masonry = new Masonry($container[0],
             {
@@ -89,7 +106,7 @@ $(document).ready(function(e)
         return $article;
     };
 
-    var update = function()
+    var update = function(subreddit, sort, last)
     {
         var url = URL_BASE,
             data =
@@ -112,28 +129,6 @@ $(document).ready(function(e)
         $more.hide();
         $loading.addClass(CLASS_LOADING);
 
-        $subreddits.children('a').each(function()
-        {
-            var $this = $(this),
-                uri = new URI();
-
-            uri.setQuery('r', $this.data('subreddit'));
-
-            $this.attr('href', uri);
-        });
-
-        $sorts.children('a').each(function()
-        {
-            var $this = $(this),
-                uri = new URI();
-
-            uri.setQuery('sort', $this.data('sort'));
-
-//            console.log(uri);
-
-            $this.attr('href', uri);
-        });
-
         $.ajax(
         {
             url : url,
@@ -147,9 +142,8 @@ $(document).ready(function(e)
                     articles = listing.children,
                     $inserted = [];
 
-                last = listing.after;
-
                 $more.show();
+                $more.data('last', listing.after);
                 $loading.removeClass(CLASS_LOADING);
 
                 if (articles.length == 0)
@@ -169,49 +163,19 @@ $(document).ready(function(e)
                         {
                             masonry.appended($inserted[i]);
                         }
-                        //masonry.addItems($inserted);
                     });
                 }
             }
         });
     };
 
-    var reset = function()
+    var load = function(subreddit, sort)
     {
-        $container.empty();
+        if ($subreddits.children().length > 1)
+        {
+            return;
+        }
 
-        last = null;
-        masonry.layout();
-
-        update();
-    };
-
-    $more.click(function(event)
-    {
-        event.preventDefault();
-
-        update();
-
-        return false;
-    });
-
-//    $('.sorts a').click(function(event)
-//    {
-//        event.preventDefault();
-//
-//        var $this = $(this);
-//
-//        $this.addClass(CLASS_SELECTED).siblings().removeClass(CLASS_SELECTED);
-//
-//        sort = $this.data('sort');
-//
-//        reset();
-//
-//        return false;
-//    });
-
-    var loadSubs = function()
-    {
         $.ajax(
             {
                 url : URL_BASE + '/subreddits/popular.json',
@@ -221,83 +185,93 @@ $(document).ready(function(e)
                 {
                     var i,
                         uri,
+                        sub,
                         link,
                         $link,
                         data = response.data;
 
                     for (i = 0; i < data.children.length; i++)
                     {
-                        uri = new URI();
-                        link = data.children[i].data;
-
-                        uri.setSearch('r', link.display_name.toLowerCase());
+                        uri = new URI('/');
+                        link = data.children[i].data,
+                        sub = link.display_name.toLowerCase();
 
                         $link = $('<a />')
                             .text(link.display_name)
-                            .attr('href', uri)
+                            .data('r', sub)
+                            .attr('href', '/')
                             .attr('title', link.title)
-                            .data('subreddit', link.display_name.toLowerCase())
                             .addClass('navigation');
 
                         $subreddits.append($link);
                     }
 
-                    init();
-
-                    //            $subreddits.children('a').click(function(event)
-                    //            {
-                    //                event.preventDefault();
-                    //
-                    //                subreddit = $(this).data('subreddit');
-                    //
-                    //                reset();
-                    //
-                    //                return false;
-                    //            });
+                    init(subreddit, sort);
                 }
             });
     };
 
-    var init = function()
+    var init = function(subreddit, sort)
     {
         var $links = $('a.navigation');
 
         $links.each(function()
         {
-            var $this = $(this);
+            var name,
+                uri = new URI(),
+                $this = $(this),
+                href = $this.attr('href'),
+                data = $this.data();
 
-            if ($this.data('init'))
+            for (name in data)
             {
-                return;
+                uri.setQuery(name, data[name]);
             }
 
-            $this.click(function(event)
+            $this.attr('href', uri.normalize());
+
+            if (!$this.isBound('click'))
             {
-                event.preventDefault();
+                $this.click(function(event)
+                {
+                    event.preventDefault();
 
-                var query = new URI($this.attr('href')).query();
+                    var search = new URI($this.attr('href')).search();
 
-                console.log(query);
+                    History.pushState(null, window.document.title, search);
 
-                History.pushState(null, null, '?' + query);
-
-                return false;
-            });
-
-            $this.data('init', true);
+                    return false;
+                });
+            }
         });
     };
 
-    init();
-    loadSubs();
+    var reset = function(uri)
+    {
+        uri = uri || window.location.href;
+        uri = new URI(uri);
 
-    var History = window.History;
+        var query   = uri.query(true),
+            sub     = query.r,
+            sort    = query.sort,
+            last    = query.last;
+
+        $container.empty();
+        $more.data('last', null);
+
+        last = null;
+        masonry.layout();
+
+        init(sub, sort);
+        load(sub, sort);
+        update(sub, sort, last);
+    };
 
     History.Adapter.bind(window, 'statechange', function()
     {
         var state = History.getState();
 
-        console.log(state);
+        reset(state.url);
     });
 
     reset();
@@ -306,7 +280,7 @@ $(document).ready(function(e)
     {
         if ($window.scrollTop() + $window.height() >= $(document).height())
         {
-            update();
+           // $more.click();
         }
     });
 });

@@ -35,13 +35,15 @@
 <body>
 
 <header>
-	<h1>Reddit Browser</h1>
+	<h1>
+		<a href='/'>Reddit Browser</a>
+	</h1>
 
-	<div class='subreddits'>
-		<a href='/' class='navigation is-selected' data-sort=''>Front Page</a>
+	<div class='menu subreddits'>
+		<a href='/' data-r='' class='navigation is-selected'>Front Page</a>
 	</div>
 
-	<div class='sorts'>
+	<div class='menu'>
 		<a href='/?sort=top'            data-sort='top'             class='navigation is-selected'>Top</a>
 		<a href='/?sort=hot'            data-sort='hot'             class='navigation'>Hot</a>
 		<a href='/?sort=new'            data-sort='new'             class='navigation'>New</a>
@@ -56,7 +58,7 @@
 
 <img class='articles-loading' src='/images/loading.gif' alt='Loading' />
 
-<a href='#' class='navigation articles-more' data-last=''>Load More</a>
+<a href='/' class='navigation articles-more' data-last=''>Load More</a>
 
 </body>
 </html>
