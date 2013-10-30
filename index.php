@@ -25,8 +25,6 @@
 	<![endif]-->
 
 	<script src='/js/vendor/jquery.js'></script>
-	<script src='/js/vendor/fancybox.js'></script>
-	<script src='/js/vendor/imagesLoaded.js'></script>
 	<script src='/js/vendor/markdown.js'></script>
 	<script src='/js/vendor/masonry.js'></script>
 	<script src='/js/vendor/history.js'></script>

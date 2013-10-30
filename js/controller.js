@@ -81,11 +81,6 @@ $(document).ready(function(e)
                 break;
         }
 
-//        $link.fancybox(
-//        {
-//            type : type
-//        });
-
         if (data.selftext)
         {
            var $body =  $('<p />')

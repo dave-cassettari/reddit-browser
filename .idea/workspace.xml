@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ff23019-5bb9-49d4-9588-55af472d11cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/sass/_fancybox.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/vendor/fancybox.js" />
+      <change type="DELETED" beforePath="C:\Users\Dave\Documents\Websites\RedditBrowser\css\sass\_fancybox.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Dave\Documents\Websites\RedditBrowser\js\vendor\fancybox.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Dave\Documents\Websites\RedditBrowser\js\vendor\imagesLoaded.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/.sass-cache/0dd9188532e3d277127338acac3cb85bec1b4c5b/style.scssc" afterPath="$PROJECT_DIR$/css/.sass-cache/0dd9188532e3d277127338acac3cb85bec1b4c5b/style.scssc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller.js" afterPath="$PROJECT_DIR$/js/controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
@@ -42,34 +43,25 @@
       <file leaf-file-name="style.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="19" selection-start="36" selection-end="36" vertical-scroll-proportion="-0.34">
+            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.fancybox.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DR00.971/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="36" selection-start="988" selection-end="988" vertical-scroll-proportion="-7.769231">
+            <state line="28" column="49" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.24829932">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="10" selection-start="2059" selection-end="2126" vertical-scroll-proportion="0.71145374">
+            <state line="82" column="0" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -96,9 +88,9 @@
         <option value="$PROJECT_DIR$/index.htm" />
         <option value="$PROJECT_DIR$/css/sass/_reset.scss" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/css/sass/style.scss" />
         <option value="$PROJECT_DIR$/js/controller.js" />
+        <option value="$PROJECT_DIR$/css/sass/style.scss" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -423,13 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="36" selection-start="988" selection-end="988" vertical-scroll-proportion="-7.769231">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DR00.971/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
@@ -444,16 +429,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
+    <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="19" selection-start="36" selection-end="36" vertical-scroll-proportion="-0.34">
+        <state line="82" column="0" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller.js">
+    <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="10" selection-start="2059" selection-end="2126" vertical-scroll-proportion="0.71145374">
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="49" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.24829932">
           <folding />
         </state>
       </provider>
