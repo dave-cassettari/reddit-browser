@@ -155,7 +155,7 @@ $(document).ready(function(e)
         var url = URL_BASE,
             data =
             {
-                after : after,
+                after : after
             };
 
         if (sub)
@@ -251,8 +251,6 @@ $(document).ready(function(e)
                     event.preventDefault();
 
                     var search = new URI($this.attr('href')).search() || '/';
-
-                    console.log(search);
 
                     History.pushState(null, window.document.title, search);
 

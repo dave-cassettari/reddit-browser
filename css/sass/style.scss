@@ -118,6 +118,25 @@ article
 
   float: left;
 
+  &.is-loading
+  {
+
+	&:after
+	{
+	  background: #000 url("/images/loading.gif") center center no-repeat;
+	  background-color: rgba(#000, 0.25);
+
+	  content: '';
+	  display: block;
+
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	}
+  }
+
   .article-link
   {
 	text-align: left;
