@@ -304,7 +304,7 @@ $(document).ready(function (e)
             sort = query.sort,
             after = query.after,
             isList = (query.hasOwnProperty('list')) ? query['list'] : false;
-        
+
         $container.toggleClass('is-list', isList);
 
         if (!after)
