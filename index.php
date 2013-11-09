@@ -49,6 +49,9 @@
 		<a href='/?sort=controversial'  data-sort='controversial'   class='navigation'>Controversial</a>
 		<a href='/?sort=random'         data-sort='random'          class='navigation'>Random</a>
 	</div>
+
+	<a href='/' data-list='1' class='navigation'>List</a>
+	<a href='/' data-list='0' class='navigation'>Grid</a>
 </header>
 
 <div class='articles'></div>
@@ -58,6 +61,10 @@
 <a href='/' class='navigation articles-more' data-after=''>Load More</a>
 
 <div class='background'></div>
+
+<div class='window-wrapper'>
+	<div class='window'></div>
+</div>
 
 </body>
 </html>

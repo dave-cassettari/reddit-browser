@@ -1,4 +1,4 @@
-$.fn.isBound = function(type, fn)
+$.fn.isBound = function (type, fn)
 {
     var data,
         events = this.data('events');
@@ -18,7 +18,7 @@ $.fn.isBound = function(type, fn)
     return (fn && $.inArray(fn, data) !== -1);
 };
 
-$(document).ready(function(e)
+$(document).ready(function (e)
 {
     var CLASS_LOADING = 'is-loading',
         CLASS_SELECTED = 'is-selected',
@@ -29,18 +29,24 @@ $(document).ready(function(e)
         $loading = $('.articles-loading'),
         $container = $('.articles'),
         $subreddits = $('.subreddits'),
+        $frameContainer = $('.window-wrapper'),
+        $frame = null,
         masonry = new Masonry($container[0],
             {
-                gutter : 0,
-                columnWidth : 320,
-                itemSelector : 'article',
-                transitionDuration : 0
+                gutter            : 0,
+                columnWidth       : 320,
+                itemSelector      : 'article',
+                transitionDuration: 0
             });
 
-    var insert = function(listing)
+    $frameContainer.click(function ()
+    {
+        $frameContainer.fadeOut();
+    });
+
+    var insert = function (listing)
     {
         var src,
-            type = 'iframe',
             data = listing.data,
             uri = new URI(data.url),
             $article = $('<article />')
@@ -59,7 +65,7 @@ $(document).ready(function(e)
         {
             src = data.thumbnail;
 
-            if (src == 'default' || src == 'self')
+            if (src == 'default' || src == 'self' || src == 'nsfw')
             {
                 src = '/images/thumbnail.png';
             }
@@ -69,23 +75,12 @@ $(document).ready(function(e)
                 .attr('src', src));
         }
 
-        switch (uri.domain())
-        {
-            case 'imgur.com':
-                type = undefined;
-                break;
-
-            case 'youtube.com':
-                type = 'youtube';
-                break;
-        }
-
         if (data.selftext)
         {
-           var $body =  $('<p />')
-               .addClass('article-body')
-               .html(markdown.toHTML(data.selftext))
-               .appendTo($article);
+            var $body = $('<p />')
+                .addClass('article-body')
+                .html(markdown.toHTML(data.selftext))
+                .appendTo($article);
 
             if ($body.height() > BODY_HEIGHT_MAX)
             {
@@ -105,10 +100,49 @@ $(document).ready(function(e)
             .text(data.num_comments)
             .appendTo($article);
 
+        $link.click(function (evvent)
+        {
+            var src,
+                href = $link.attr('href');
+
+            event.preventDefault();
+
+            if (!$frame)
+            {
+                $frame = $('<iframe />')
+                    .addClass('window-contents')
+                    .appendTo($frameContainer.children('.window'))
+                    .click(function (event)
+                    {
+                        event.stopPropagation();
+                    })
+                    .load(function ()
+                    {
+                        $frame.removeClass(CLASS_LOADING);
+                    });
+            }
+
+            src = $frame.attr('src');
+
+            if (src != href)
+            {
+                $frame
+                    .addClass(CLASS_LOADING)
+                    .attr('src', href);
+            }
+
+            if (!$frameContainer.is(':visible'))
+            {
+                $frameContainer.fadeIn();
+            }
+
+            return false;
+        });
+
         return $article;
     };
 
-    var init = function()
+    var init = function ()
     {
         if ($subreddits.children().length > 1)
         {
@@ -117,10 +151,10 @@ $(document).ready(function(e)
 
         $.ajax(
             {
-                url : URL_BASE + '/subreddits/popular.json',
-                jsonp: 'jsonp',
-                dataType : 'jsonp',
-                success : function(response)
+                url     : URL_BASE + '/subreddits/popular.json',
+                jsonp   : 'jsonp',
+                dataType: 'jsonp',
+                success : function (response)
                 {
                     var i,
                         uri,
@@ -150,12 +184,12 @@ $(document).ready(function(e)
             });
     };
 
-    var load = function(sub, sort, after)
+    var load = function (sub, sort, after)
     {
         var url = URL_BASE,
             data =
             {
-                after : after
+                after: after
             };
 
         if (sub)
@@ -174,49 +208,49 @@ $(document).ready(function(e)
         $loading.addClass(CLASS_LOADING);
 
         $.ajax(
-        {
-            url : url,
-            data : data,
-            jsonp: 'jsonp',
-            dataType : 'jsonp',
-            success : function(response)
             {
-                var i,
-                    $inserted,
-                    listing = response.data,
-                    articles = listing.children;
-
-                $more.show();
-                $more.data('after', listing.after);
-                $loading.removeClass(CLASS_LOADING);
-
-                if (articles.length == 0)
+                url     : url,
+                data    : data,
+                jsonp   : 'jsonp',
+                dataType: 'jsonp',
+                success : function (response)
                 {
-                    // warn
-                }
-                else
-                {
-                    for (i = 0; i < articles.length; i++)
+                    var i,
+                        $inserted,
+                        listing = response.data,
+                        articles = listing.children;
+
+                    $more.show();
+                    $more.data('after', listing.after);
+                    $loading.removeClass(CLASS_LOADING);
+
+                    if (articles.length == 0)
                     {
-                        $inserted = insert(articles[i]);
-
-                        masonry.appended($inserted)
+                        // warn
                     }
-                }
+                    else
+                    {
+                        for (i = 0; i < articles.length; i++)
+                        {
+                            $inserted = insert(articles[i]);
 
-                update();
-            }
-        });
+                            masonry.appended($inserted)
+                        }
+                    }
+
+                    update();
+                }
+            });
     };
 
-    var update = function()
+    var update = function ()
     {
         var $links = $('a.navigation'),
             current = new URI();
 
         current.removeQuery('after');
 
-        $links.each(function()
+        $links.each(function ()
         {
             var name,
                 value,
@@ -246,7 +280,7 @@ $(document).ready(function(e)
 
             if (!$this.isBound('click'))
             {
-                $this.click(function(event)
+                $this.click(function (event)
                 {
                     event.preventDefault();
 
@@ -260,15 +294,18 @@ $(document).ready(function(e)
         });
     };
 
-    var reset = function(uri)
+    var reset = function (uri)
     {
         uri = uri || window.location.href;
         uri = new URI(uri);
 
-        var query   = uri.query(true),
-            sub     = query.r,
-            sort    = query.sort,
-            after   = query.after;
+        var query = uri.query(true),
+            sub = query.r,
+            sort = query.sort,
+            after = query.after,
+            isList = (query.hasOwnProperty('list')) ? query['list'] : false;
+        
+        $container.toggleClass('is-list', isList);
 
         if (!after)
         {
@@ -283,7 +320,7 @@ $(document).ready(function(e)
         load(sub, sort, after);
     };
 
-    History.Adapter.bind(window, 'statechange', function()
+    History.Adapter.bind(window, 'statechange', function ()
     {
         var state = History.getState();
 
@@ -292,7 +329,7 @@ $(document).ready(function(e)
 
     reset();
 
-    $window.scroll(function()
+    $window.scroll(function ()
     {
         if ($window.scrollTop() + $window.height() >= $(document).height())
         {

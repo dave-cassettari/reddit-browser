@@ -7,8 +7,7 @@ $article-margin: 10px;
 $article-radius: 0.25em;
 $article-columns: 6, 5, 4, 3, 2;
 
-@mixin clear-fix()
-{
+@mixin clear-fix() {
   &:after
   {
 	height: 0;
@@ -100,6 +99,16 @@ h1
   width: nth($article-columns, 1) * ($article-width + 2 * $article-margin);
   margin: 0 auto;
   padding: ($header-height + 1em) 0 0;
+
+  &.is-list
+  {
+	width: 100%;
+
+	article
+	{
+	  width: 100%;
+	}
+  }
 }
 
 article
@@ -224,7 +233,7 @@ article
 
   &.is-loading
   {
-  	display: block;
+	display: block;
   }
 }
 
@@ -248,7 +257,7 @@ article
 
   background: $header-background;
 
-  white-space:nowrap;
+  white-space: nowrap;
 
   overflow: hidden;
   position: relative;
@@ -284,12 +293,50 @@ article
   }
 }
 
-@for $i from 1 through length($article-columns)
+.window-wrapper
 {
+  $window-wrapper-padding: 3em;
+
+  background: #000;
+  background: rgba(#000, 0.25);
+
+  display: none;
+  z-index: 1000;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .window
+  {
+	background: #fff url('/images/loading.gif') center center no-repeat;
+	box-shadow: 0 0 0.5em #000;
+
+	position: absolute;
+	top: $window-wrapper-padding;
+	left: $window-wrapper-padding;
+	right: $window-wrapper-padding;
+	bottom: $window-wrapper-padding;
+
+	.window-contents
+	{
+	  width: 100%;
+	  height: 100%;
+
+	  &.is-loading
+	  {
+		display: none;
+	  }
+	}
+  }
+}
+
+@for $i from 1 through length($article-columns) {
   $column: nth($article-columns, $i);
 
-  @media all and (max-width: $column * ($article-width + 2 * $article-margin))
-  {
+  @media all and (max-width: $column * ($article-width + 2 * $article-margin)) {
 	.articles
 	{
 	  width: ($column - 1) * ($article-width + 2 * $article-margin);
