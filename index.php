@@ -64,6 +64,9 @@
 
 <div class='window-wrapper'>
 	<div class='window'></div>
+	<a class='window-navigation window-prev' href='#'>&laquo;</a>
+	<a class='window-navigation window-hide' href='#'>x</a>
+	<a class='window-navigation window-next' href='#'>&raquo;</a>
 </div>
 
 </body>

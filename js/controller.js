@@ -30,7 +30,11 @@ $(document).ready(function (e)
         $container = $('.articles'),
         $subreddits = $('.subreddits'),
         $frameContainer = $('.window-wrapper'),
+        $frameNext = $frameContainer.children('.window-next'),
+        $framePrev = $frameContainer.children('.window-prev'),
+        $frameHide = $frameContainer.children('.window-hide'),
         $frame = null,
+        $selected = null,
         masonry = new Masonry($container[0],
             {
                 gutter            : 0,
@@ -42,6 +46,55 @@ $(document).ready(function (e)
     $frameContainer.click(function ()
     {
         $frameContainer.fadeOut();
+    });
+
+    $frameNext.click(function (event)
+    {
+        var $next;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if ($selected)
+        {
+            $next = $selected.next();
+
+            if ($next.length > 0)
+            {
+                $next.children('.article-link').click();
+            }
+        }
+
+        return false;
+    });
+
+    $framePrev.click(function (event)
+    {
+        var $prev;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if ($selected)
+        {
+            $prev = $selected.prev();
+
+            if ($prev.length > 0)
+            {
+                $prev.children('.article-link').click();
+            }
+        }
+
+        return false;
+    });
+
+    $frameHide.click(function (event)
+    {
+        event.preventDefault();
+
+        $frameContainer.fadeOut();
+
+        return false;
     });
 
     var insert = function (listing)
@@ -135,6 +188,8 @@ $(document).ready(function (e)
             {
                 $frameContainer.fadeIn();
             }
+
+            $selected = $article;
 
             return false;
         });

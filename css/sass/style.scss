@@ -295,10 +295,12 @@ article
 
 .window-wrapper
 {
-  $window-wrapper-padding: 3em;
+  $window-wrapper-padding: 4em;
 
   background: #000;
   background: rgba(#000, 0.25);
+
+  text-align: center;
 
   display: none;
   z-index: 1000;
@@ -320,16 +322,35 @@ article
 	right: $window-wrapper-padding;
 	bottom: $window-wrapper-padding;
 
+	overflow: auto;
+
+	-webkit-overflow-scrolling: touch;
+
 	.window-contents
 	{
 	  width: 100%;
 	  height: 100%;
+
+	  background: #fff;
 
 	  &.is-loading
 	  {
 		display: none;
 	  }
 	}
+  }
+
+  .window-navigation
+  {
+	margin: 0.5em 0.25em 0;
+	padding: 0.1em 0.5em 0.375em;
+
+	border: 1px solid #333;
+	background: #fff;
+
+	font-size: 150%;
+
+	display: inline-block;
   }
 }
 
