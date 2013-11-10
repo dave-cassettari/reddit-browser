@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ff23019-5bb9-49d4-9588-55af472d11cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller.js" afterPath="$PROJECT_DIR$/js/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/compiled/style.css" afterPath="$PROJECT_DIR$/css/compiled/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/style.scss" afterPath="$PROJECT_DIR$/css/sass/style.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tabs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tabs.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/sass/tabs.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Dave.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Dave.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RedditBrowser.iws" />
@@ -29,28 +29,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
+      <file leaf-file-name="tabs.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tabs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="5" selection-start="3569" selection-end="3569" vertical-scroll-proportion="-10.7027025" vertical-offset="4393" max-vertical-offset="6307">
+            <state line="70" column="9" selection-start="2363" selection-end="2363" vertical-scroll-proportion="-29.846153" vertical-offset="414" max-vertical-offset="1394">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="tabs.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/sass/tabs.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="30" selection-start="2254" selection-end="2254" vertical-scroll-proportion="-14.153846" vertical-offset="737" max-vertical-offset="1326">
+            <state line="248" column="14" selection-start="3465" selection-end="3465" vertical-scroll-proportion="-14.653846" vertical-offset="3835" max-vertical-offset="4573">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/controller.js">
+      <file leaf-file-name="tabs.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/tabs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="32" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.13375796" vertical-offset="851" max-vertical-offset="6783">
+            <state line="85" column="21" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.13535032" vertical-offset="1360" max-vertical-offset="2924">
               <folding />
             </state>
           </provider>
@@ -80,6 +80,10 @@
         <option value="$PROJECT_DIR$/css/sass/style.scss" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/js/controller.js" />
+        <option value="$PROJECT_DIR$/js/tabs/reddit.js" />
+        <option value="$PROJECT_DIR$/css/sass/tabs.scss" />
+        <option value="$PROJECT_DIR$/tabs.php" />
+        <option value="$PROJECT_DIR$/js/tabs.js" />
       </list>
     </option>
   </component>
@@ -206,7 +210,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.sourceCode.JavaScript" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -214,6 +218,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dave\Documents\Websites\RedditBrowser" />
       <recent name="C:\Users\Dave\Documents\Websites\RedditBrowser\js\vendor" />
       <recent name="C:\Users\Dave\Documents\Websites\RedditBrowser\css\sass" />
     </key>
@@ -225,6 +230,15 @@
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -291,34 +305,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1364" selection-end="1364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="29" selection-start="4082" selection-end="4082" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="47" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="34" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="235" column="33" selection-start="2669" selection-end="2669" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -374,23 +360,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
+    <entry file="file://$PROJECT_DIR$/../Expenses/public_html/js/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="5" selection-start="3569" selection-end="3569" vertical-scroll-proportion="-10.7027025" vertical-offset="4393" max-vertical-offset="6307">
+        <state line="3" column="0" selection-start="117" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5950">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="30" selection-start="2254" selection-end="2254" vertical-scroll-proportion="-14.153846" vertical-offset="737" max-vertical-offset="1326">
+        <state line="65" column="30" selection-start="2254" selection-end="2254" vertical-scroll-proportion="-15.153846" vertical-offset="711" max-vertical-offset="1326">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="315" column="72" selection-start="3663" selection-end="3731" vertical-scroll-proportion="-0.8783784" vertical-offset="5290" max-vertical-offset="6307">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="32" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.13375796" vertical-offset="851" max-vertical-offset="6783">
+        <state line="281" column="31" selection-start="7031" selection-end="7031" vertical-scroll-proportion="0.48566878" vertical-offset="4472" max-vertical-offset="6783">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/tabs.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="248" column="14" selection-start="3465" selection-end="3465" vertical-scroll-proportion="-14.653846" vertical-offset="3835" max-vertical-offset="4573">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tabs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="9" selection-start="2363" selection-end="2363" vertical-scroll-proportion="-29.846153" vertical-offset="414" max-vertical-offset="1394">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="21" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.13535032" vertical-offset="1360" max-vertical-offset="2924">
           <folding />
         </state>
       </provider>
