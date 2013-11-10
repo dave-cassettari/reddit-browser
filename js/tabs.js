@@ -69,8 +69,6 @@ var ViewController = function ($scope, Reddit)
 
                     $scope.items = response.data.children;
 
-                    console.log($scope.items);
-
                     for (i = 0; i < $scope.items.length; i++)
                     {
                         $scope.items[i].data.permalink = URL_BASE + $scope.items[i].data.permalink;

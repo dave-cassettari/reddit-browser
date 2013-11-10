@@ -76,12 +76,16 @@ html
   font-size: 11pt;
   font-family: 'Open Sans', Arial, sans-serif;
   font-weight: 300;
+
+  overflow: hidden;
 }
 
 body
 {
   width: 100%;
   height: 100%;
+
+  overflow: hidden;
 }
 
 a
@@ -108,11 +112,6 @@ a
   @include scrolling();
 }
 
-.items
-{
-
-}
-
 .item
 {
   $item-link-width: 65px;
@@ -126,7 +125,7 @@ a
   position: relative;
 
   @include clear-fix();
-  @include linear-gradient(#fff, #f8f8f8);
+  @include linear-gradient(#fff, #f9f9f9);
 
   .item-image
   {
@@ -182,6 +181,8 @@ a
 {
   height: $tabs-height;
 
+  border-left: 1px solid #eee;
+
   overflow-x: auto;
   overflow-y: hidden;
 
@@ -196,10 +197,11 @@ a
   .tab
   {
 	max-width: 12em;
-	margin: 0 -1px 0 0;
-	padding: 11px 1em 12px;
+	padding: 12px 1em;
 
 	border: 1px solid #eee;
+	border-top: none;
+	border-left: none;
 	background: #f8f8f8;
 
 	text-overflow: ellipsis;
@@ -227,6 +229,7 @@ a
 .windows
 {
   border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 
   position: fixed;
   top: 0;
@@ -238,7 +241,7 @@ a
   {
 	background: #fff url('/images/loading.gif') center center no-repeat;
 
-	overflow: auto;
+	overflow: hidden;
 
 	-webkit-overflow-scrolling: touch;
 
@@ -259,6 +262,22 @@ a
 	  {
 		display: none;
 	  }
+	}
+  }
+}
+
+@media only screen and (device-width: 768px) {
+
+  .item
+  {
+	border-right: none;
+  }
+
+  .windows
+  {
+	.window-wrapper
+	{
+	  overflow: auto;
 	}
   }
 }

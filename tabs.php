@@ -10,10 +10,12 @@
 <head>
 	<title>Reddit Browser</title>
 
-	<meta charset='UTF-8'>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge, chrome=1'>
+	<meta charset='UTF-8'/>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge, chrome=1'/>
 	<meta name='viewport'
-	      content='width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	      content='width=device-width, initial-scale=1.0, user-scalable=0'/>
+	<meta name='apple-mobile-web-app-capable' content='yes'/>
+	<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'/>
 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:300,600'>
 	<link rel='stylesheet' type='text/css' href='/css/compiled/tabs.css'>
@@ -36,18 +38,18 @@
 
 	<div class='items'>
 		<div class='item' data-ng-repeat='item in items'>
-			<img src='{{ item.data.thumbnail }}' class='item-image'/>
+			<img data-ng-src='{{ item.data.thumbnail }}' class='item-image'/>
 
-			<a href='{{ item.data.url }}' class='item-score'
-			   data-ng-show='item.data.url != item.data.permalink'
-			   data-ng-click='load(item.data.url, item.data.title)'
-			   data-prevent-default='click'>{{ item.data.score }}</a>
+			<span class='item-score'>{{ item.data.score }}</span>
 
 			<a href='{{ item.data.permalink }}' class='item-comments'
 			   data-ng-click='load(item.data.permalink, item.data.title)'
 			   data-prevent-default='click'>{{ item.data.num_comments }}</a>
 
-			<span class='item-title' data-ng-class='{ "is-wide" : !item.data.thumbnail }'>{{ item.data.title }}</span>
+			<a href='{{ item.data.url }}' class='item-title'
+			   data-ng-class='{ "is-wide" : !item.data.thumbnail }'
+			   data-ng-click='load(item.data.url, item.data.title)'
+			   data-prevent-default='click'>{{ item.data.title }}</a>
 		</div>
 	</div>
 </div>
